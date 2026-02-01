@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reelstream/constants.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:reelstream/views/widgets/screens/auth/login_screen.dart';
+import 'package:reelstream/views/widgets/screens/auth/signup_screen.dart';
 
 
 
@@ -23,12 +24,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: 'Reelstream',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: LoginScreen(),
+      home: SignupScreen(),
     );
   }
 }
